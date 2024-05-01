@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './css/Login.css'; // Import external CSS file
+import './css/Login.css'; 
+import {NavLink} from 'react-router-dom';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -67,7 +68,8 @@ function Login() {
 
   return (
     <div className="container">
-      <h2>Sign In</h2>
+      <div className="title"><h2>Sign In</h2>
+      </div>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='username'>User Name</label>
@@ -128,6 +130,15 @@ function Login() {
       ) : (
         ""
       )}
+      <div>
+        <br/> <br/>
+        <div>
+          <NavLink to="/registration">Registration</NavLink>
+        </div>
+        <div>
+          <NavLink to="/ForgotPassword">Forgot Password</NavLink>
+        </div>
+      </div>
     </div>
   );
 }
