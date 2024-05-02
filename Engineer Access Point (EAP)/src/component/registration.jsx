@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './css/registration.css';
-
+import logo from '../assets/Logo.jpg'
 function Registration() {
     const [formData, setFormData] = useState({
         firstname: '',
@@ -79,6 +79,9 @@ function Registration() {
 
     return (
         <form onSubmit={handleSubmit} className="form-container">
+            <div className='logo'>
+                <img src={logo} alt='Logo' />
+            </div>
             <div>
                <div className='title'> 
                 <h2>Sign Up</h2>

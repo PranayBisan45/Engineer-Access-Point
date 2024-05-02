@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './css/Login.css'; 
 import {NavLink} from 'react-router-dom';
-
+import logo from '../assets/Logo.jpg'
 function Login() {
   const [formData, setFormData] = useState({
     username: '',
@@ -68,7 +68,10 @@ function Login() {
 
   return (
     <div className="container">
-      <div className="title"><h2>Sign In</h2>
+      <div className='logo'>
+        <img src={logo} alt='Logo'/>
+      </div>
+      <div className="title"><h2>Log In</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <div>
@@ -123,7 +126,7 @@ function Login() {
           />
         </div>
         <br />
-        <button type='submit'>Log In</button>
+        <button type='submit'>Submit</button>
       </form>
       {invalid ? (
         <h4 className="error-message">Invalid Credentials</h4>

@@ -1,4 +1,5 @@
 .form-container {
+  /* position:relative ; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,4 +45,23 @@
 
 .form-container button:hover {
   background-color: #3e8e41;
+}
+
+/* .logo {
+  width: 50px;
+  height: auto;
+  position:absolute;
+  top: 10px;
+  right: 10px;
+} */
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.logo img {
+  width: 130px;
+  height: auto;
 }
