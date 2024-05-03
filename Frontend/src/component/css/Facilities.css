@@ -1,0 +1,26 @@
+.image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .image > div {
+    flex: 0 0 45%; /* Each child div takes up 45% width */
+    margin-bottom: 20px; /* Spacing between rows */
+    text-align: center; /* Center-align text */
+  }
+  
+  .image > div img {
+    max-width: 100%; /* Ensure images don't exceed parent div width */
+    max-height: 60%; /* Maintain aspect ratio */
+  }
+  
+.projectName {
+    font-size: 24px; /* Example font size */
+    font-weight: bold; /* Example font weight */
+    color: rgb(1, 153, 235); /* Example text color */
+    text-align: center; /* Center-align text */
+    margin-bottom: 10px; /* Add spacing below the text */
+  }
+  

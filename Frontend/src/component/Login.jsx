@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './css/Login.css'; 
 import {NavLink} from 'react-router-dom';
 import logo from '../assets/Logo.jpg'
+// import login from '../assets/login.jpg'
+import { IoPersonCircleSharp } from "react-icons/io5";
 function Login() {
   const [formData, setFormData] = useState({
     username: '',
@@ -71,11 +73,15 @@ function Login() {
       <div className='logo'>
         <img src={logo} alt='Logo'/>
       </div>
+      {/* <img src={login} className='login' alt='login'/> */}
+      <div style={{ fontSize: '36px', color: 'darkslategray' }}>
+  <IoPersonCircleSharp />
+      </div>
       <div className="title"><h2>Log In</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='username'>User Name</label>
+          <label htmlFor='username' className='whiteText'>User Name</label>
           <input
             type='text'
             id='username'
@@ -86,7 +92,7 @@ function Login() {
           />
         </div>
         <div>
-          <label htmlFor='usertype'>User Type</label>
+          <label htmlFor='usertype' className='whiteText'>User Type</label>
           <select
             id='usertype'
             name='usertype'
@@ -101,7 +107,7 @@ function Login() {
         </div>
         {ecode && (
           <div>
-            <label htmlFor="ecode">Engg Secret Code</label>
+            <label htmlFor="ecode" className='whiteText'>Engg Secret Code</label>
             <input
               type='password'
               id='ecode'
@@ -113,7 +119,7 @@ function Login() {
           </div>
         )}
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" className='whiteText'>Password</label>
           <input
             type='password'
             name='password'

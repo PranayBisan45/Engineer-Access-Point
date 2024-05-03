@@ -1,0 +1,19 @@
+.projectName {
+    position: relative; /* Set the container as a positioned parent */
+    text-align: center; /* Center-align content */
+    color: black;
+  }
+  
+  .projectName img {
+    width: 100%; /* Ensure the image fills its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is treated as a block element */
+  }
+  
+  .projectName .icon {
+    position: absolute; /* Position the icon absolutely within the container */
+    top: 60%; /* Align the icon vertically centered */
+    right: calc(100% - 95px); /* Adjust the left position (example: 20px from the right) */
+    transform: translate(-50%, -50%); /* Adjust to center the icon vertically */
+  }
+  

@@ -1,0 +1,18 @@
+.homeImage {
+    text-align: center; /* Center-align content */
+  }
+  
+  .homeImage h1 {
+    margin-bottom: 20px; /* Add spacing below the heading */
+  }
+
+  .homeImage img {
+    width: 200%; /* Ensure the image fills its container horizontally */
+    height: 400px; /* Set a fixed height for the image to maintain rectangular shape */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+    position: relative;
+  }
+  
+
+
+  
