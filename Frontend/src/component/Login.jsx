@@ -69,17 +69,18 @@ function Login() {
   };
 
   return (
+    <div className='screenLogin'>
     <div className="container">
       <div className='logo'>
         <img src={logo} alt='Logo'/>
       </div>
-      {/* <img src={login} className='login' alt='login'/> */}
       <div style={{ fontSize: '36px', color: 'darkslategray' }}>
   <IoPersonCircleSharp />
       </div>
       <div className="title"><h2>Log In</h2>
       </div>
       <form onSubmit={handleSubmit}>
+        <div className='login-container'>
         <div>
           <label htmlFor='username' className='whiteText'>User Name</label>
           <input
@@ -133,6 +134,7 @@ function Login() {
         </div>
         <br />
         <button type='submit'>Submit</button>
+        </div>
       </form>
       {invalid ? (
         <h4 className="error-message">Invalid Credentials</h4>
@@ -148,6 +150,7 @@ function Login() {
           <NavLink to="/ForgotPassword">Forgot Password</NavLink>
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import Home from "../component/Home";
 import Navbar from "../component/Navbar"
 import Facilities from "../component/Facilities";
 import Appointment from "../component/Appointment";
+import AddAppointment from "../component/AddAppointment";
 
 const AllRouting = () => {
   return (
@@ -18,6 +19,7 @@ const AllRouting = () => {
         <Route path="/Home" element={<Home/>} />
         <Route path="/Facilities" element={<Facilities/>} />
         <Route path="/Appointment" element={<Appointment/>} />
+        <Route path="/AddAppointment" element={<AddAppointment/>} />
     </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './css/registration.css';
 import logo from '../assets/Logo.jpg'
+import { MdOutlineAppRegistration } from "react-icons/md";
 function Registration() {
     const [formData, setFormData] = useState({
         firstname: '',
@@ -78,62 +79,78 @@ function Registration() {
     };
 
     return (
+        <div className='screen'>
+            <div className="content-container">
+            <div className="logo">
+          <img src={logo} alt="Logo" />
+        </div>
         <form onSubmit={handleSubmit} className="form-container">
-            <div className='logo'>
+            {/* <div className='logo'>
                 <img src={logo} alt='Logo' />
-            </div>
+            </div> */}
             <div>
                <div className='title'> 
                 <h2>Sign Up</h2>
                </div>
-                <br></br> <br></br>
+               <div style={{ fontSize: '36px', color: 'darkslategray' }}>
+               <MdOutlineAppRegistration />
+               </div>
+                
             </div>
-            <div>
-                <label htmlFor="firstname">First Name</label>
-                <input
-                    type="text"
-                    id="firstname"
-                    name="firstname"
-                    value={formData.firstname}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div>
-                <label htmlFor="lastname">Last Name</label>
-                <input
-                    type="text"
-                    id="lastname"
-                    name="lastname"
-                    value={formData.lastname}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div>
-                <label htmlFor="email">Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div>
-                <label htmlFor="usertype">User Type</label>
-                <select
-                    id="usertype"
-                    name="usertype"
-                    value={formData.usertype}
-                    onChange={handleChange}
-                    required>
-                        <option value="User Type">Select User Type</option>
-                        <option value="user">User</option>
-                        <option value="engineer">Engineer</option>
-                    </select>
-            </div>
+            <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="firstname">First Name</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            value={formData.firstname}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="lastname">Last Name</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            value={formData.lastname}
+            onChange={handleChange}
+            required
+          />
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="usertype">User Type</label>
+          <select
+            id="usertype"
+            name="usertype"
+            value={formData.usertype}
+            onChange={handleChange}
+            required
+          >
+            <option value="User Type">Select User Type</option>
+            <option value="user">User</option>
+            <option value="engineer">Engineer</option>
+          </select>
+        </div>
+      </div>
+      <div className="form-row">
+        <div className="form-group">
             <div>
                 <label htmlFor="dob">Date of Birth</label>
                 <input
@@ -145,6 +162,8 @@ function Registration() {
                     required
                 />
                 </div>
+                </div>
+                <div className="form-group">
                 <div>
                 <label htmlFor="username">User Name</label>
                 <input
@@ -157,6 +176,10 @@ function Registration() {
                     minLength={6}
                 />
             </div>
+            </div>
+            </div>
+            <div className="form-row">
+        <div className="form-group">
             <div>
                 <label htmlFor="password">Password</label>
                 <input
@@ -171,6 +194,8 @@ function Registration() {
                     minLength={6}
                 />
             </div>
+            </div>
+            <div className="form-group">
             <div>
                 <label htmlFor="mobile">Mobile Number</label>
                 <input
@@ -182,6 +207,10 @@ function Registration() {
                     required
                 />
             </div>
+            </div>
+            </div>
+            <div className="form-row">
+        <div className="form-group">
             <div>
                 <label htmlFor="address">Address</label>
                 <input
@@ -193,6 +222,8 @@ function Registration() {
                     required
                 />
             </div>
+            </div>
+            <div className="form-group">
             <div>
                 <label htmlFor="zipcode">Zip Code</label>
                 <input
@@ -205,6 +236,10 @@ function Registration() {
                     minLength={6}
                 />
             </div>
+            </div>
+            </div>
+            <div className="form-row">
+            <div className="form-group">
             <div>
                 <label htmlFor="state">State</label>
                 <input
@@ -216,6 +251,8 @@ function Registration() {
                     required
                 />
             </div>
+            </div>
+            <div className="form-group">
             <div>
                 <label htmlFor="country">Country</label>
                 <input
@@ -227,9 +264,13 @@ function Registration() {
                     required
                 />
             </div>
+            </div>
+            </div>
             <br></br>
             <button type="submit">Register</button>
         </form>
+        </div>
+        </div>
     );
 }
 

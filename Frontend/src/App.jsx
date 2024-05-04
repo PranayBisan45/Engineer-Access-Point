@@ -11,7 +11,8 @@ function App() {
   return (
     <>
       {/* Wrapper */}
-      <Navbar/>               
+      <Navbar/>     
+      <div className="content-container"></div>          
       <AllRouting/>
     </>
   )

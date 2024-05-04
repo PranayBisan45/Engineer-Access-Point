@@ -12,7 +12,7 @@ public class appointment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int aid;
-	
+	private String username;
 	private String name;
 	private String number;
 	private String date;
@@ -23,9 +23,10 @@ public class appointment {
 		super();
 	}
 	
-	public appointment(int aid, String name, String number, String date, String purpose, String status) {
+	public appointment(int aid, String username, String name, String number, String date, String purpose, String status) {
 		super();
 		this.aid = aid;
+		this.username = username;
 		this.name = name;
 		this.number = number;
 		this.date = date;
@@ -79,9 +80,15 @@ public class appointment {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	public appointment(String username) {
+		super();
+		this.username = username;
+	}
+
 	@Override
 	public String toString() {
-		return "appointment [aid=" + aid + ", name=" + name + ", number=" + number + ", date=" + date + ", purpose="
-				+ purpose + ", status=" + status + "]";
+		return "appointment [aid=" + aid + ", username=" + username + ", name=" + name + ", number=" + number
+				+ ", date=" + date + ", purpose=" + purpose + ", status=" + status + "]";
 	}
 }

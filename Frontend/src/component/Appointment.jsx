@@ -6,14 +6,19 @@ import All from "../assets/All Appointment.jpg"
 import './css/Facilities.css'
 import { GiClick } from "react-icons/gi";
 import './css/Appointment.css'
+import { NavLink } from 'react-router-dom'
 function Appointment() {
   return (
     <div className='image'>
      <div className='projectName'>
+     <NavLink to="/AddAppointment">
       Add Appointment
+      </NavLink>
       <div className="imageContainer">
+        <NavLink to="/AddAppointment">
         <img src={AppointmentImage} alt='Add Appointment Image' />
         <GiClick className="icon" />
+        </NavLink>
       </div>
     </div>
     <div className='projectName'>

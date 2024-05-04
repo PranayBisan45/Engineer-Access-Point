@@ -1,17 +1,67 @@
-/* login.css */
+.screen {
+   margin: 0; 
+  padding: 0;  
+  background-image: url('../../assets/BackLogin.jpg');
+  background-size: cover;  
+  background-position: center; 
+  display: flex; 
+  justify-content: center; 
+ align-items: center;
+}
+
+
+
+/* .screen {
+  position: relative;
+  width: 100%;
+  margin-bottom: 0px;
+  padding: 100px;
+}
+.screen::before {
+  content: "";
+  background-image: url('../../assets/BackLogin.jpg');
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(0px); 
+} */
+
+
 .container {
     max-width: 400px;
     margin: 0 auto;
     padding: 38px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #000000;
+    background-image: url(../../assets/Login.jpg);
+    box-shadow: 3px 3px 10px rgba(0, 221, 255, 0.9);
+    z-index: 100;
+    /* background-color: #000000; */
     /* opacity: 1; */
   }
   
+  .container button{
+    height: 40px;
+    background-color: rgba(16, 177, 198, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 13px;
+    border: none;
+    color: rgb(20, 23, 193);
+    cursor: pointer;
+    margin-top: 20px;
+    width: 400px;
+    height: 50px;
+  }
+
+
+
+  
   .title {
     text-align: center;
-    color: #00ff08;
+    color: #008cff;
   }
   
   form {
@@ -23,20 +73,11 @@
     margin-bottom: 8px;
   }
   
-  input[type="text"],
-  input[type="password"],
-  select {
-    width: 100%;
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 12px;
-  }
-  
+
+
   button {
     padding: 10px;
-    background-color: #006e00;
+    background-color: #18e1eb;
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -44,7 +85,7 @@
   }
   
   button:hover {
-    background-color: #267d00;
+    background-color: #64b3e1;
   }
   
   .error-message {
@@ -59,6 +100,7 @@
     position: absolute;
     top: 10px;
     left: 10px;
+    margin-top: 33px;
   }
   
   .logo img {
@@ -66,6 +108,19 @@
     height: auto;
   }
 
-  .whiteText {
-    color: white;
+  .whiteText {  
+    color: rgb(0, 0, 0);
+  }
+
+  .login-container input[type="text"],
+  .login-container input[type="password"],
+  .login-container select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    margin-bottom: 12px;
+    background-color: rgba(24, 225, 235, 0.5);
+    color: #000000;
   }
