@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './css/registration.css';
 import logo from '../assets/Logo.jpg'
+import { NavLink } from 'react-router-dom';
 import { MdOutlineAppRegistration } from "react-icons/md";
 function Registration() {
     const [formData, setFormData] = useState({
@@ -85,9 +86,6 @@ function Registration() {
           <img src={logo} alt="Logo" />
         </div>
         <form onSubmit={handleSubmit} className="form-container">
-            {/* <div className='logo'>
-                <img src={logo} alt='Logo' />
-            </div> */}
             <div>
                <div className='title'> 
                 <h2>Sign Up</h2>
@@ -266,8 +264,13 @@ function Registration() {
             </div>
             </div>
             </div>
-            <br></br>
+            <br/>
             <button type="submit">Register</button>
+            <div>
+              <br/>
+          already a user?  
+          <NavLink to= "/login"> Login </NavLink>
+        </div>
         </form>
         </div>
         </div>

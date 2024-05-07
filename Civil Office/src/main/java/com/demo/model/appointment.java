@@ -34,9 +34,10 @@ public class appointment {
 		this.status = status;
 	}
 
-	public appointment(int aid, String name, String number, String date, String purpose) {
+	public appointment(int aid, String username, String name, String number, String date, String purpose) {
 		super();
 		this.aid = aid;
+		this.username = username;
 		this.name = name;
 		this.number = number;
 		this.date = date;
@@ -81,8 +82,10 @@ public class appointment {
 		this.status = status;
 	}
 	
-	public appointment(String username) {
-		super();
+	public String getUsername() {
+		return username;
+	}
+	public void getUsername(String username) {
 		this.username = username;
 	}
 

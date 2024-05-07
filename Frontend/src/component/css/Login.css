@@ -9,27 +9,6 @@
  align-items: center;
 }
 
-
-
-/* .screen {
-  position: relative;
-  width: 100%;
-  margin-bottom: 0px;
-  padding: 100px;
-}
-.screen::before {
-  content: "";
-  background-image: url('../../assets/BackLogin.jpg');
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  filter: blur(0px); 
-} */
-
-
 .container {
     max-width: 400px;
     margin: 0 auto;
@@ -39,8 +18,6 @@
     background-image: url(../../assets/Login.jpg);
     box-shadow: 3px 3px 10px rgba(0, 221, 255, 0.9);
     z-index: 100;
-    /* background-color: #000000; */
-    /* opacity: 1; */
   }
   
   .container button{

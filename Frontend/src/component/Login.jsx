@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './css/Login.css'; 
 import {NavLink} from 'react-router-dom';
 import logo from '../assets/Logo.jpg'
-// import login from '../assets/login.jpg'
 import { IoPersonCircleSharp } from "react-icons/io5";
 function Login() {
   const [formData, setFormData] = useState({

@@ -67,6 +67,12 @@
   margin-bottom: 15px;
   background-color: rgba(255, 255, 255, 0.55);
   color: #000000;
+  border: 1px solid #000000;
+}
+
+.form-container input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); 
+  color: black;
 }
 
 .form-container button {
@@ -77,6 +83,7 @@
   border-radius: 5px;
   cursor: pointer;
   margin-bottom:7 %;
+  border: 1px solid #000000;
 }
 
 .form-container button:hover {

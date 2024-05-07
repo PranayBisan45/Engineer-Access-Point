@@ -14,7 +14,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 	private AppointmentDao adao;
 	
 	@Override
-	public appointment appointment(com.demo.model.appointment a) {
+	public appointment appointment(appointment a) {
 		return adao.save(a);
 	}
 
