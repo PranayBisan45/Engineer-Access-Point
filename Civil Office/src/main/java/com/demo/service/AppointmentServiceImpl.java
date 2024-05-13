@@ -41,4 +41,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 		return adao.getAll();
 	}
 
+	@Override
+	public List<appointment> getByUsername(String username) {
+		return adao.getByUsername(username);
+	}
+
 }

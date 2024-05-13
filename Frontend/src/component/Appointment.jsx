@@ -22,10 +22,14 @@ function Appointment() {
       </div>
     </div>
     <div className='projectName'>
+      <NavLink to="/DeleteAppointment">
       Delete Appointment
+      </NavLink>
       <div className="imageContainer">
+        <NavLink to="/DeleteAppointment">
         <img src={Delete} alt='Delete Appointment Image' />
         <GiClick className="icon" />
+        </NavLink>
       </div>
     </div>
     <div className='projectName'>
@@ -36,10 +40,14 @@ function Appointment() {
       </div>
     </div>
     <div className='projectName'>
+      <NavLink to="/AllAppointment">
       All Appointments
+      </NavLink>
       <div className="imageContainer">
+      <NavLink to="/AllAppointment">
         <img src={All} alt='All Appointment Image' />
         <GiClick className="icon" />
+        </NavLink>
       </div>
     </div>
     </div>

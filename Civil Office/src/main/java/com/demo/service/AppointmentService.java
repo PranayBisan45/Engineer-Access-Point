@@ -1,7 +1,6 @@
 package com.demo.service;
 
 import java.util.List;
-
 import com.demo.model.appointment;
 
 public interface AppointmentService {
@@ -13,4 +12,6 @@ public interface AppointmentService {
 	boolean update(int aid, String status);
 
 	List<appointment> getAll();
+
+	List<appointment> getByUsername(String username);
 }

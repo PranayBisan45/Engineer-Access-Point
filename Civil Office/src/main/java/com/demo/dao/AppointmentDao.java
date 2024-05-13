@@ -26,4 +26,8 @@ public interface AppointmentDao extends JpaRepository<appointment,Integer>{
 	@Modifying
 	@Query(value = "SELECT * FROM Appointment",nativeQuery=true)
 	List<appointment> getAll();
+
+	@Modifying
+	@Query(value = "SELECT * FROM Appointment WHERE username=?",nativeQuery=true)
+	List<appointment> getByUsername(String username);
 }

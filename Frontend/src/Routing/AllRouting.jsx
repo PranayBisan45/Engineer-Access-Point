@@ -7,7 +7,8 @@ import Navbar from "../component/Navbar"
 import Facilities from "../component/Facilities";
 import Appointment from "../component/Appointment";
 import AddAppointment from "../component/AddAppointment";
-
+import DeleteAppointment from "../component/DeleteAppointment";
+import AllAppointment from "../component/AllAppointment";
 const AllRouting = () => {
   return (
     <BrowserRouter>
@@ -20,6 +21,8 @@ const AllRouting = () => {
         <Route path="/Facilities" element={<Facilities/>} />
         <Route path="/Appointment" element={<Appointment/>} />
         <Route path="/AddAppointment" element={<AddAppointment/>} />
+        <Route path="/DeleteAppointment" element={<DeleteAppointment/>} />
+        <Route path="/AllAppointment" element={<AllAppointment/>} />
     </Routes>
     </BrowserRouter>
   );

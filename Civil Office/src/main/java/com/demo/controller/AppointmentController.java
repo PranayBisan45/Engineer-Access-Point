@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.demo.model.appointment;
 import com.demo.service.AppointmentService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transactional;
 
 @RestController
@@ -59,11 +62,49 @@ public class AppointmentController {
 	
 	@Transactional
 	@GetMapping("/GetAll")
-	public ResponseEntity<List<appointment>> getAllAppointment() {
+	public ResponseEntity<List<appointment>> getAllAppointment(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		String username = (String) session.getAttribute("username");
+		String usertype = (String) session.getAttribute("usertype");
+		
+		System.out.println(username+"-----------");
+		System.out.println(usertype+"-----------");
+		
+		if(usertype =="engineer") {
+			List<appointment> list = aservice.getAll();
+			
+			if(list!=null) {
+				return ResponseEntity.ok(list);
+			}
+		}
+		
+		if(usertype == "user") {
+			List <appointment> list = aservice.getByUsername(username);
+			
+			if(list!=null) {
+				return ResponseEntity.ok(list);
+			}
+		}
+			return ResponseEntity.notFound().build();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Transactional
+	@GetMapping("/DummyData")
+	public ResponseEntity<List<appointment>> dummyData() {
 		List<appointment> list = aservice.getAll();
+		
 		if(list!=null) {
 			return ResponseEntity.ok(list);
 		}
-			return ResponseEntity.ok(null);
+		return ResponseEntity.notFound().build();
 	}
 }

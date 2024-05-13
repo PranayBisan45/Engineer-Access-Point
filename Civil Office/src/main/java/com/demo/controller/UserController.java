@@ -2,6 +2,7 @@ package com.demo.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.demo.model.appointment;
 import com.demo.model.user;
 import com.demo.service.userService;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 
 @RestController
@@ -37,13 +42,21 @@ public class UserController {
 	}
 	
 	@GetMapping("/Login")
-	public ResponseEntity<String> LoginUser(@RequestParam String username,@RequestParam String password,@RequestParam String usertype) {
+	public ResponseEntity<String> LoginUser(@RequestParam String username,@RequestParam String password,@RequestParam String usertype, HttpServletRequest request) {
 		user ul = uservice.validate(username,password,usertype);
 		
 		if(ul!=null) {
-			return ResponseEntity.ok("Login Successful");
+			HttpSession session = request.getSession(true);
+			session.setAttribute("username",username);
+			session.setAttribute("usertype",usertype);
+			
+//			String user1 = (String) session.getAttribute("username");
+//			System.out.println(user1+"????????????");
+			
+			
+			return ResponseEntity.ok("Login Successful") ;
 		}
-			return ResponseEntity.ok("Login Failed");
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login Failed");
 	}
 	
 //	@GetMapping("/Search/{name}")
