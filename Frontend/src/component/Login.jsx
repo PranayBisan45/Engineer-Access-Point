@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import './css/Login.css'; 
 import {NavLink} from 'react-router-dom';
 import logo from '../assets/Logo.jpg'
@@ -45,7 +45,9 @@ function Login() {
       console.log(formData);
 
       if (response === "Login Successful") {
-        localStorage.setItem("userid", formData.username);
+        sessionStorage.setItem("username", formData.username);
+      
+        sessionStorage.setItem("usertype", formData.usertype);
         setFormData({
           username: '',
           usertype: '',

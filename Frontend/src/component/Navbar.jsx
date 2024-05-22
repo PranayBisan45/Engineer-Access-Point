@@ -1,4 +1,3 @@
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EAP from '../assets/EAP.png';
 import image from '../assets/image.png';

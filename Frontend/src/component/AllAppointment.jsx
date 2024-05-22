@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './css/AllAppointment.css'
 function AllAppointment() {
   const [appointmentData, setAppointmentData] = useState([]);
 
   const fetchAppointment = async () => {
+    const username = sessionStorage.getItem('username');
+    const usertype = sessionStorage.getItem('usertype');
+
     try {
-      const url = "http://localhost:8080/Appointment/DummyData";
+      const url = `http://localhost:8080/Appointment/GetAll/${username}/${usertype}`;
       const response = await axios.get(url);
       setAppointmentData(response.data);
     } catch (error) {

@@ -51,9 +51,9 @@ public class AppointmentController {
 	}
 	
 	@Transactional
-	@PutMapping("/Update/{aid}/{status}")
-	public ResponseEntity<?> UpdateAppointment(@PathVariable int aid,@PathVariable String status) {
-		boolean flag = aservice.update(aid,status);
+	@PostMapping("/Update")
+	public ResponseEntity<?> UpdateAppointment(@RequestBody appointment a) {
+		boolean flag = aservice.update(a);
 		if(flag) {
 			return ResponseEntity.ok(true);
 		}
@@ -61,16 +61,10 @@ public class AppointmentController {
 	}
 	
 	@Transactional
-	@GetMapping("/GetAll")
-	public ResponseEntity<List<appointment>> getAllAppointment(HttpServletRequest request) {
-		HttpSession session = request.getSession(false);
-		String username = (String) session.getAttribute("username");
-		String usertype = (String) session.getAttribute("usertype");
-		
-		System.out.println(username+"-----------");
-		System.out.println(usertype+"-----------");
-		
-		if(usertype =="engineer") {
+	@GetMapping("/GetAll/{username}/{usertype}")
+	public ResponseEntity<List<appointment>> getAllAppointment(@PathVariable String username,@PathVariable String usertype) {
+
+		if(usertype.equals("engineer")) {
 			List<appointment> list = aservice.getAll();
 			
 			if(list!=null) {
@@ -78,33 +72,12 @@ public class AppointmentController {
 			}
 		}
 		
-		if(usertype == "user") {
+		if(usertype.equals("user")) {
 			List <appointment> list = aservice.getByUsername(username);
-			
 			if(list!=null) {
 				return ResponseEntity.ok(list);
 			}
 		}
 			return ResponseEntity.notFound().build();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Transactional
-	@GetMapping("/DummyData")
-	public ResponseEntity<List<appointment>> dummyData() {
-		List<appointment> list = aservice.getAll();
-		
-		if(list!=null) {
-			return ResponseEntity.ok(list);
-		}
-		return ResponseEntity.notFound().build();
 	}
 }

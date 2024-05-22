@@ -9,7 +9,7 @@ public interface AppointmentService {
 
 	boolean delete(int aid);
 
-	boolean update(int aid, String status);
+	boolean update(appointment a);
 
 	List<appointment> getAll();
 

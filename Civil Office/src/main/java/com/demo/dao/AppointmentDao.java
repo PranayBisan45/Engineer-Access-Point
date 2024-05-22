@@ -20,8 +20,8 @@ public interface AppointmentDao extends JpaRepository<appointment,Integer>{
 	int delete(int aid);
 
 	@Modifying
-	@Query(value = "UPDATE Appointment SET status=?2 WHERE aid=?1",nativeQuery=true)
-	int update(int aid, String status);
+	@Query(value = "UPDATE Appointment SET name=?2,username=?3,number=?4,appointment=?5,purpose=?6 WHERE aid=?1",nativeQuery=true)
+	int update(int id,String name,String username,String number,String appointment,String purpose);
 
 	@Modifying
 	@Query(value = "SELECT * FROM Appointment",nativeQuery=true)

@@ -46,11 +46,11 @@ public class UserController {
 		user ul = uservice.validate(username,password,usertype);
 		
 		if(ul!=null) {
-			HttpSession session = request.getSession(true);
-			session.setAttribute("username",username);
-			session.setAttribute("usertype",usertype);
-			
-//			String user1 = (String) session.getAttribute("username");
+//			HttpSession session = request.getSession();
+//			session.setAttribute("usernamekey",username);
+//			session.setAttribute("usertypekey",usertype);
+//			
+//			String user1 = (String) session.getAttribute("usernamekey");
 //			System.out.println(user1+"????????????");
 			
 			
@@ -58,10 +58,4 @@ public class UserController {
 		}
 		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login Failed");
 	}
-	
-//	@GetMapping("/Search/{name}")
-//	public ResponseEntity <appointment> Search(@PathVariable String name) {
-//		appointment a = uservice.search(name);
-//		return null;
-//	}
 }

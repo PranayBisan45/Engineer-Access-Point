@@ -9,6 +9,7 @@ import Appointment from "../component/Appointment";
 import AddAppointment from "../component/AddAppointment";
 import DeleteAppointment from "../component/DeleteAppointment";
 import AllAppointment from "../component/AllAppointment";
+import UpdateAppointment from "../component/UpdateAppointment";
 const AllRouting = () => {
   return (
     <BrowserRouter>
@@ -23,6 +24,7 @@ const AllRouting = () => {
         <Route path="/AddAppointment" element={<AddAppointment/>} />
         <Route path="/DeleteAppointment" element={<DeleteAppointment/>} />
         <Route path="/AllAppointment" element={<AllAppointment/>} />
+        <Route path="/UpdateAppointment" element={<UpdateAppointment/>} />
     </Routes>
     </BrowserRouter>
   );

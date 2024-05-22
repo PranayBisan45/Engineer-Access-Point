@@ -1,4 +1,3 @@
-import React from 'react'
 import AppointmentImage from "../assets/Appointment.jpg"
 import Delete from "../assets/Delete Appointment.jpg"
 import Update from "../assets/Update Appointment.jpg"
@@ -10,17 +9,17 @@ import { NavLink } from 'react-router-dom'
 function Appointment() {
   return (
     <div className='image'>
-     <div className='projectName'>
-     <NavLink to="/AddAppointment">
-      Add Appointment
-      </NavLink>
-      <div className="imageContainer">
+      <div className='projectName'>
         <NavLink to="/AddAppointment">
-        <img src={AppointmentImage} alt='Add Appointment Image' />
-        <GiClick className="icon" />
+          Add Appointment
         </NavLink>
+        <div className="imageContainer">
+          <NavLink to="/AddAppointment">
+          <img src={AppointmentImage} alt='Add Appointment Image' />
+          <GiClick className="icon" />
+          </NavLink>
+        </div>
       </div>
-    </div>
     <div className='projectName'>
       <NavLink to="/DeleteAppointment">
       Delete Appointment
@@ -33,10 +32,14 @@ function Appointment() {
       </div>
     </div>
     <div className='projectName'>
+    <NavLink to="/UpdateAppointment">
       Update Appointment
+    </NavLink>
       <div className="imageContainer">
+      <NavLink to="/UpdateAppointment">
         <img src={Update} alt='Delete Appointment Image' />
         <GiClick className="icon" />
+        </NavLink>
       </div>
     </div>
     <div className='projectName'>

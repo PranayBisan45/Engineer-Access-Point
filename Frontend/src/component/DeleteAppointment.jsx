@@ -5,8 +5,10 @@ function DeleteAppointment() {
   const [Appointment,setAppointment] = useState([]);
 
   const fetchAppointment = async ()=> {
+    const username = sessionStorage.getItem('username');
+    const usertype = sessionStorage.getItem('usertype');
     try {
-    const url = "http://localhost:8080/Appointment/DummyData";
+    const url = `http://localhost:8080/Appointment/GetAll/${username}/${usertype}`;
     const response = await axios.get(url);
     setAppointment(response.data);
     }

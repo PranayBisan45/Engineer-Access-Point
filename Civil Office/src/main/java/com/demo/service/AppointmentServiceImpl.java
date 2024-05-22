@@ -28,8 +28,8 @@ public class AppointmentServiceImpl implements AppointmentService {
 	}
 
 	@Override
-	public boolean update(int aid, String status) {
-		int rowAffected = adao.update(aid,status);
+	public boolean update(appointment a) {
+		int rowAffected = adao.update(a.getAid(),a.getName(),a.getUsername(),a.getNumber(),a.getDate(),a.getPurpose());
 		if(rowAffected >0) {
 			return true;
 		}
