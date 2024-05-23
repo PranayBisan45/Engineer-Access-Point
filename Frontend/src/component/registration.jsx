@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import './css/registration.css';
 import logo from '../assets/Logo.jpg'
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import { MdOutlineAppRegistration } from "react-icons/md";
 function Registration() {
     const [formData, setFormData] = useState({
@@ -22,7 +22,8 @@ function Registration() {
     const [warning, setWarning] = useState(false);
     const [userId, setUserId] = useState("");
     const [error, setError] = useState("");
-    
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
       };
@@ -35,9 +36,9 @@ function Registration() {
 
             const URL = formData.usertype==="engineer" ? "http://localhost:8080/Engineer/Registration" : "http://localhost:8080/User/Registration"
             fetch(URL, {
-                     method: "POST",
-                     headers: {
-                     "Content-Type": "application/json",
+                    method: "POST",
+                    headers: {
+                    "Content-Type": "application/json",
     },
                     body: JSON.stringify(formData),
 })
@@ -55,6 +56,7 @@ function Registration() {
                 } else {
                     setError("");
                     setUserId(data);
+                    navigate("/");
                   }
             })
             .catch((error) => {

@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './css/AddAppointment.css'
 import { IoLogIn } from "react-icons/io5";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 function AddAppointment() {
   const [formData,setFormData] = useState({
     username: '',
@@ -10,6 +12,8 @@ function AddAppointment() {
     purpose: '',    
     date: null
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e)=>{
     const {name ,value} = e.target;
@@ -30,6 +34,7 @@ function AddAppointment() {
             purpose: '',
             date: ''
           });
+          navigate('/');
         }
         catch (error) {
           console.error('Error while fetching data:', error.message);

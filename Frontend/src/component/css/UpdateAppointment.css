@@ -1,5 +1,5 @@
-/* .Container {
-    background-image: url(../../assets/Add_Appointment.jpg);
+/* .container-update {
+    background-image: url(../../assets/Update_Appointment.jpg);
     background-size: cover; 
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@
     z-index: 100;
 }
 
-.Container button {
+.container-update button {
     height: 30px;
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
@@ -28,16 +28,16 @@
     border: 1px solid #000000;
 }
 
-.Container button:hover {
-    background-color: rgba(19, 213, 216, 0.6);
+.container-update button:hover {
+    background-color: rgba(128, 97, 12, 0.6);
   }
 
-.add-container input[type="text"],
-.add-container input[type="password"],
-.add-container input[type="number"],
-.add-container input[type="date"],
+.add-update input[type="text"],
+.add-update input[type="password"],
+.add-update input[type="number"],
+.add-update input[type="date"],
 .react-datepicker-wrapper,
-.add-container select {
+.add-update select {
     width: 100%;
     padding: 8px;
     font-size: 14px;
@@ -50,11 +50,12 @@
 
 
 
-.add-container input[type="date"]::-webkit-calendar-picker-indicator {
+.add-update input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1); 
     color: black;
   }
 
-.text {
+.text-update {
     font-weight: bold;
+    
 } */

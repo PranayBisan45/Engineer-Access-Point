@@ -1,131 +1,28 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import EAP from '../assets/EAP.png';
+import Logo from '../assets/Logo.jpg';
 import image from '../assets/image.png';
 
 const Navbar = () => {
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top">
-        <div className="container-fluid">
-          <button
-            data-mdb-collapse-init
-            className="navbar-toggler"
-            type="button"
-            data-mdb-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i className="fas fa-bars"></i>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <a className="navbar-brand mt-2 mt-lg-0" href="/">
-              <img src={EAP} height="22" alt="EAP Logo" loading="lazy" />
-            </a>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link" href="Home">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="Facilities">
-                  Facilities
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="Appointment">
-                  Appointment
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="Login">
-                  Login
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="d-flex align-items-center">
-            <a className="text-reset me-3" href="#">
-              <i className="fas fa-shopping-cart"></i>
-            </a>
-
-            <div className="dropdown">
-              <a
-                data-mdb-dropdown-init
-                className="text-reset me-3 dropdown-toggle hidden-arrow"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                aria-expanded="false"
-              >
-                <i className="fas fa-bell"></i>
-                <span className="badge rounded-pill badge-notification bg-danger">1</span>
-              </a>
-              <ul
-                className="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Some news
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another news
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="dropdown">
-              <a
-                data-mdb-dropdown-init
-                className="dropdown-toggle d-flex align-items-center hidden-arrow"
-                href="#"
-                id="navbarDropdownMenuAvatar"
-                role="button"
-                aria-expanded="false"
-              >
-                <img
-                  src={image}
-                  className="rounded-circle"
-                  height="25"
-                  alt="Black and White Portrait of a Man"
-                  loading="lazy"
-                />
-              </a>
-              <ul
-                className="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownMenuAvatar"
-              >
-                <li>
-                  <a className="dropdown-item" href="#">
-                    My profile
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Settings
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Logout
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div className='flex fixed bg-white'>
+      <a className="" href="/">
+        <img src={Logo} className='mr-44 ml-3 my-2 h-20 w-20' alt="Logo" loading="lazy" />
+      </a>
+      <a className="mr-10 my-8 text-lg font-bold text-blue-700" href="Home">
+        Home 
+      </a>
+      <a className="mr-10 text-lg my-8 font-bold text-blue-700" href="Facilities">
+        Facilities
+      </a>
+      <a className="mr-10 text-lg my-8 font-bold text-blue-700" href="Appointment">
+        Appointment
+      </a>
+      <a className="mr-[800px] my-8 text-lg font-bold text-blue-700" href="Login">
+        Login
+      </a>
+      <a className="" href="#">
+        <img src={image} className="h-10 my-8 rounded-3xl" loading="lazy"/>
+      </a>
     </div>
   );
 };

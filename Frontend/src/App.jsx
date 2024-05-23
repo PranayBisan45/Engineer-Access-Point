@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Navbar/>     
-      <div className="content-container"></div>          
+      <div className="pt-[130px]"></div>
       <AllRouting/>
     </>
   )
