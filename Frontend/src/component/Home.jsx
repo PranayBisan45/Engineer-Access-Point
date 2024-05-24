@@ -4,7 +4,7 @@ import Calendar from "./Calender"
 function Home() {
   return (
     <div className="mb-14">
-      <div className="flex ml-40">
+      <div className="flex ml-40 bg-sky-50">
         <h1 className="text-black text-5xl w-[2050px] font-bold">Schedule
         <br/><span className="text-blue-800"> appointments </span> <br/> 
         online directly <br/> from your website

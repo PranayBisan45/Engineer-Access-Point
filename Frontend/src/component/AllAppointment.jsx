@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import './css/AllAppointment.css'
+
 function AllAppointment() {
   const [appointmentData, setAppointmentData] = useState([]);
 
@@ -23,9 +23,9 @@ function AllAppointment() {
   
   return (
     <div>
-      <h1 className='heading'>All Appointments</h1>
+      <h1 className='text-center font-bold mb-5 text-3xl'>All Appointments</h1>
 
-      <table className="table table-hover">
+      <table className="table table-hover ml-6">
         <thead className="thead-dark">
           <tr>
             <th>Sr. No.</th>

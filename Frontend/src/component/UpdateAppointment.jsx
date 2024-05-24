@@ -32,8 +32,8 @@ const UpdateAppointment = () => {
 
   return (
     <div>
-      <h1 className='heading'>All Appointment</h1>
-      <table className='table table-hover'>
+      <h1 className='text-center font-bold mb-5 text-3xl'>All Appointment</h1>
+      <table className='table table-hover ml-6'>
         <thead>
             <tr>
               <th>Sr. No.</th>

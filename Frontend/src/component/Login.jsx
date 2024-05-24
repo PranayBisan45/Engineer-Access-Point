@@ -1,7 +1,5 @@
 import  { useState } from 'react';
-import './css/Login.css'; 
 import {NavLink, useNavigate} from 'react-router-dom';
-import logo from '../assets/Logo.jpg'
 import { IoPersonCircleSharp } from "react-icons/io5";
 
 function Login() {
@@ -78,20 +76,14 @@ function Login() {
   };
 
   return (
-    <div className='screenLogin'>
-    <div className="container">
-      <div className='logo'>
-        <img src={logo} alt='Logo'/>
-      </div>
-      <div style={{ fontSize: '36px', color: 'darkslategray' }}>
-  <IoPersonCircleSharp />
-      </div>
-      <div className="title"><h2>Log In</h2>
-      </div>
+    <div className="w-full items-center m-auto justify-center flex bg-[url('src/assets/Login.jpg')]">
+      <div className="px-10 my-8 py-5 pr-0 w-96 rounded-xl bg-sky-200 bg-opacity-70">
+      <IoPersonCircleSharp  className='text-slate-800 w-72 h-8'/>
+      <h2 className="pl-[120px] font-bold mb-4 mt-1">Log In</h2>
       <form onSubmit={handleSubmit}>
-        <div className='login-container'>
+        <div className='text-center'>
         <div>
-          <label htmlFor='username' className='whiteText'>User Name</label>
+          <label htmlFor='username' className='mr-16 mb-2'>User Name</label> <br/>
           <input
             type='text'
             id='username'
@@ -99,16 +91,18 @@ function Login() {
             value={formData.username}
             onChange={handleChange}
             required
+            className='rounded-lg w-72 h-8 mr-12 mb-4'
           />
         </div>
         <div>
-          <label htmlFor='usertype' className='whiteText'>User Type</label>
+          <label htmlFor='usertype' className='mr-16 mb-2'>User Type</label> <br/>
           <select
             id='usertype'
             name='usertype'
             value={formData.usertype}
             onChange={(e) => { handleChange(e); handleSetEcode(e) }}
             required
+            className='rounded-lg w-72 h-8 mr-12 mb-4'
           >
             <option>Select User Type</option>
             <option value="user">User</option>
@@ -117,7 +111,7 @@ function Login() {
         </div>
         {ecode && (
           <div>
-            <label htmlFor="ecode" className='whiteText'>Engg Secret Code</label>
+            <label htmlFor="ecode" className='mr-16 mb-2'>Engg Secret Code</label>
             <input
               type='password'
               id='ecode'
@@ -125,11 +119,12 @@ function Login() {
               value={edata}
               onChange={handleChange}
               required
+              className='rounded-lg w-72 h-8 mr-12 mb-4'
             />
           </div>
         )}
         <div>
-          <label htmlFor="password" className='whiteText'>Password</label>
+          <label htmlFor="password" className='mr-16 mb-2'>Password</label> <br/>
           <input
             type='password'
             name='password'
@@ -139,10 +134,11 @@ function Login() {
             value={formData.password}
             onChange={handleChange}
             required
+            className='rounded-lg w-72 h-8 mr-12 mb-4'
           />
         </div>
         <br />
-        <button type='submit'>Submit</button>
+        <button type='submit' className='rounded-lg w-72 h-8 mr-12 mb-4 bg-sky-50 hover:bg-sky-500'>Submit</button>
         </div>
       </form>
       {invalid ? (
@@ -151,12 +147,12 @@ function Login() {
         ""
       )}
       <div>
-        <br/> <br/>
-        <div>
-          <NavLink to="/registration">Registration</NavLink>
+        <br/>
+        <div className='text-center mr-12'> New User?
+          <NavLink to="/registration" className='text-blue-900 font-bold'> Registration</NavLink>
         </div>
-        <div>
-          <NavLink to="/ForgotPassword">Forgot Password</NavLink>
+        <div className='text-center mr-12'>
+          <NavLink to="/ForgotPassword" className='text-blue-900 font-bold'>Forgot Password</NavLink>
         </div>
       </div>
     </div>

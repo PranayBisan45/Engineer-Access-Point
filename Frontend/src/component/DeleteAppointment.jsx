@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import './css/AllAppointment.css'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
+
 function DeleteAppointment() {
   const [Appointment,setAppointment] = useState([]);
 
@@ -35,8 +35,8 @@ function DeleteAppointment() {
 
   return (
     <div>
-        <h1 className='heading'>Delete Appointment</h1>
-        <table className='table table-hover'>
+        <h1 className='text-center font-bold mb-5 text-3xl'>Delete Appointment</h1>
+        <table className='table table-hover ml-6'>
           <thead>
             <tr>
               <th>Sr. No.</th>

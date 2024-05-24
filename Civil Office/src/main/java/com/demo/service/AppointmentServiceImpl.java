@@ -29,9 +29,16 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 	@Override
 	public boolean update(appointment a) {
-		int rowAffected = adao.update(a.getAid(),a.getName(),a.getUsername(),a.getNumber(),a.getDate(),a.getPurpose());
-		if(rowAffected >0) {
-			return true;
+		if(a.getUsername().equals("user")) {
+			int rowAffected = adao.update(a.getAid(),a.getName(),a.getUsername(),a.getNumber(),a.getDate(),a.getPurpose());
+			if(rowAffected >0) {
+				return true;
+			}
+		} else {
+			int rowAffected = adao.updateAdmin(a.getAid(),a.getName(),a.getUsername(),a.getNumber(),a.getDate(),a.getPurpose(),a.getStatus());
+			if(rowAffected >0) {
+				return true;
+			}
 		}
 			return false;
 	}

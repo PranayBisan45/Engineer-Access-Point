@@ -1,13 +1,19 @@
 import axios from "axios";
 import { useState } from "react";
 import { useLocation,useNavigate } from "react-router-dom";
-import './css/UpdateAppointment.css'
 import { GrDocumentUpdate } from "react-icons/gr";
 
 const UpdateComponent = () => {
     const location = useLocation();
     const { aid, name, username, number, date, purpose } = location.state;
     const navigate = useNavigate();
+    // const [status,setStatus] = useState(false);
+
+    const usertype = sessionStorage.getItem('usertype');
+
+    // if(usertype==="engineer") {
+    //     setStatus(true);
+    // }
 
     const [formData, setFormData] = useState({
         aid,
@@ -43,61 +49,65 @@ const UpdateComponent = () => {
     };
 
     return (
-    <div className="container-update">
-        <h5 className='text-update'>Update Component</h5>
-        <div style={{ fontSize: '26px'}}>
-        <GrDocumentUpdate />
-        </div>
-        <br/>
-        <form onSubmit={handleSubmit}>
-        <div className="add-update">
-        <div>
-            <label htmlFor="name" className="text">Name </label>
-            <input
-            type='text'
-            name='name'
-            id='name'
-            value={formData.name}
-            onChange={handleChange}
-        />
-        </div>
-        <div>
-            <label htmlFor="username" className="text">Username </label>
-            <input
-            type='text'
-            name='username'
-            id='username'
-            value={formData.username}
-            onChange={handleChange}
-        />
-        </div>
-        <div>
-            <label htmlFor="number" className="text">Mobile No. </label>
+        <div className="w-full items-center m-auto justify-center flex bg-[url('src/assets/Update_Appointment.jpg')]">
+            <div className="px-10 my-8 py-5 pr-0 w-96 rounded-xl bg-yellow-900 bg-opacity-70">
+                <h1 className='pl-[80px] font-bold mb-1 mt-1 text-white'>Update Component</h1>
+                <GrDocumentUpdate className='text-white w-5 ml-[140px] h-8' />
+                <br/>
+                <form onSubmit={handleSubmit}>
+                    <div className="text-center">
+                        <div>
+                            <label htmlFor="name" className='mr-16 mb-2 text-white'>Name </label> <br/>
+                            <input
+                                type='text'
+                                name='name'
+                                id='name'
+                                value={formData.name}
+                                onChange={handleChange}
+                                className='rounded-lg w-72 h-8 mr-12 mb-4'
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="username" className="mr-16 mb-2 text-white">Username </label>
+                            <input
+                                type='text'
+                                name='username'
+                                id='username'
+                                value={formData.username}
+                                onChange={handleChange}
+                                className='rounded-lg w-72 h-8 mr-12 mb-4'
+                            />
+                        </div>
+                        <div>
+            <label htmlFor="number" className="mr-16 mb-2 text-white">Mobile No. </label>
             <input
             type='number'
             name='number'
             id='number'
             value={formData.number}
             onChange={handleChange}
+            className='rounded-lg w-72 h-8 mr-12 mb-4'
         />
         </div>
         <div>
-            <label htmlFor="date" className="text">Date of Appointment </label>
+            <label htmlFor="date" className="mr-16 mb-2 text-white">Date of Appointment </label>
             <input
             type='date'
             name='date'
             id='date'
             value={formData.date}
             onChange={handleChange}
+            className='rounded-lg w-72 h-8 mr-12 mb-4'
         />
         </div>
         <div>
-            <label htmlFor="purpose" className="text">Purpose </label>
+            <label htmlFor="purpose" className="mr-16 mb-2 text-white">Purpose </label>
             <select
             id='purpose'
             name='purpose'
             value={formData.purpose}
             onChange={handleChange}
+            className='rounded-lg w-72 h-8 mr-12 mb-4'
         >
             <option>Select option</option>
             <option>Project Planning</option>
@@ -107,9 +117,10 @@ const UpdateComponent = () => {
             <option>Structural Design and Analysis</option>
         </select>
         </div>
-        <button type="submit">Update</button>
-        </div>
+        <button type="submit" className='rounded-lg w-72 h-8 mr-12 mb-4 mt-4 bg-sky-50 hover:bg-yellow-800'>Update</button>
+            </div>
         </form>
+    </div>
     </div>
 );
 };

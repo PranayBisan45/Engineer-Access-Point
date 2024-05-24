@@ -4,7 +4,7 @@ import image from '../assets/image.png';
 
 const Navbar = () => {
   return (
-    <div className='flex fixed bg-white'>
+    <div className='flex fixed bg-white z-10'>
       <a className="" href="/">
         <img src={Logo} className='mr-44 ml-3 my-2 h-20 w-20' alt="Logo" loading="lazy" />
       </a>
