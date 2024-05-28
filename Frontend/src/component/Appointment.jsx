@@ -2,7 +2,6 @@ import AppointmentImage from "../assets/Appointment.jpg"
 import Delete from "../assets/Delete Appointment.jpg"
 import Update from "../assets/Update_Appointment.jpg"
 import All from "../assets/All Appointment.jpg"
-import { GiClick } from "react-icons/gi";
 import { NavLink } from 'react-router-dom'
 function Appointment() {
   return (

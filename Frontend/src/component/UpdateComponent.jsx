@@ -5,15 +5,10 @@ import { GrDocumentUpdate } from "react-icons/gr";
 
 const UpdateComponent = () => {
     const location = useLocation();
-    const { aid, name, username, number, date, purpose } = location.state;
+    const { aid, name, username, number, date, purpose, status } = location.state;
     const navigate = useNavigate();
-    // const [status,setStatus] = useState(false);
 
     const usertype = sessionStorage.getItem('usertype');
-
-    // if(usertype==="engineer") {
-    //     setStatus(true);
-    // }
 
     const [formData, setFormData] = useState({
         aid,
@@ -22,6 +17,8 @@ const UpdateComponent = () => {
         number,
         date,
         purpose,
+        status
+        
     });
 
     const handleChange = (e) => {
@@ -35,8 +32,15 @@ const UpdateComponent = () => {
     const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-        const url = 'http://localhost:8080/Appointment/Update';
-        const response = await axios.post(url,formData);
+        const userUrl = 'http://localhost:8080/Appointment/UpdateUser';
+        const adminUrl = 'http://localhost:8080/Appointment/UpdateAdmin';
+        let response;
+        if(usertype==='engineer') {
+            response = await axios.post(adminUrl,formData);
+        } else {
+            response = await axios.post(userUrl,formData);
+        }
+        
         if (response.status === 200) {
             navigate('/UpdateAppointment');
         } else {
@@ -117,6 +121,23 @@ const UpdateComponent = () => {
             <option>Structural Design and Analysis</option>
         </select>
         </div>
+        {usertype==='engineer' && (
+        <div>
+            <label htmlFor="status" className="mr-16 mb-2 text-white">Status </label>
+            <select
+                id='status'
+                name='status'
+                value={formData.status}
+                onChange={handleChange}
+                className='rounded-lg w-72 h-8 mr-12 mb-4'
+            >
+                <option>Select option</option>
+                <option>Approved</option>
+                <option>Rejected</option>
+                <option>Pending</option>
+            </select>
+        </div>
+        )}
         <button type="submit" className='rounded-lg w-72 h-8 mr-12 mb-4 mt-4 bg-sky-50 hover:bg-yellow-800'>Update</button>
             </div>
         </form>

@@ -9,9 +9,12 @@ public interface AppointmentService {
 
 	boolean delete(int aid);
 
-	boolean update(appointment a);
+	boolean updateUser(appointment a);
+	
+	boolean updateAdmin(appointment a);
 
 	List<appointment> getAll();
 
 	List<appointment> getByUsername(String username);
+
 }

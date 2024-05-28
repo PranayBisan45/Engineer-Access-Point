@@ -3,6 +3,8 @@ import Logo from '../assets/Logo.jpg';
 import image from '../assets/image.png';
 
 const Navbar = () => {
+  const usertype = sessionStorage.getItem('usertype');
+
   return (
     <div className='flex fixed bg-white z-10'>
       <a className="" href="/">
@@ -17,11 +19,20 @@ const Navbar = () => {
       <a className="mr-10 text-lg my-8 font-bold text-blue-700" href="Appointment">
         Appointment
       </a>
-      <a className="mr-[800px] my-8 text-lg font-bold text-blue-700" href="Login">
-        Login
-      </a>
+      {
+        usertype ? (
+          <a className="mr-auto text-lg my-8 font-bold text-blue-700" href="Logout">
+            Logout
+          </a>
+        ) : (
+          <a className="mr-auto text-lg my-8 font-bold text-blue-700" href="Login">
+            Login
+          </a>
+        )
+      }
+      
       <a className="" href="#">
-        <img src={image} className="h-10 my-8 rounded-3xl" loading="lazy"/>
+        <img src={image} className="h-10 my-8 ml-[800px] rounded-3xl mr-20" loading="lazy"/>
       </a>
     </div>
   );

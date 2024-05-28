@@ -17,7 +17,7 @@ public class appointment {
 	private String number;
 	private String date;
 	private String purpose;
-	private String status = "pending";  // Approved / Rejected / Pending
+	private String status="Pending" ;  // Approved / Rejected / Pending
 	
 	public appointment() {
 		super();

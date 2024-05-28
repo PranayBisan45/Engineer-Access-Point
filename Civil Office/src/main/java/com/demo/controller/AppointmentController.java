@@ -44,9 +44,19 @@ public class AppointmentController {
 	}
 	
 	@Transactional
-	@PostMapping("/Update")
-	public ResponseEntity<?> UpdateAppointment(@RequestBody appointment a) {
-		boolean flag = aservice.update(a);
+	@PostMapping("/UpdateUser")
+	public ResponseEntity<?> UpdateAppointmentUser(@RequestBody appointment a) {
+		boolean flag = aservice.updateUser(a);
+		if(flag) {
+			return ResponseEntity.ok(true);
+		}
+			return ResponseEntity.ok(false);
+	}
+	
+	@Transactional
+	@PostMapping("/UpdateAdmin")
+	public ResponseEntity<?> UpdateAppointmentAdmin(@RequestBody appointment a) {
+		boolean flag = aservice.updateAdmin(a);
 		if(flag) {
 			return ResponseEntity.ok(true);
 		}
