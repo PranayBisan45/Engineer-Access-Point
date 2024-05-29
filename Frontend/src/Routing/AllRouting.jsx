@@ -10,6 +10,7 @@ import DeleteAppointment from "../component/DeleteAppointment";
 import AllAppointment from "../component/AllAppointment";
 import UpdateAppointment from "../component/UpdateAppointment";
 import UpdateComponent from "../component/UpdateComponent";
+
 const AllRouting = () => {
   return (
     <BrowserRouter>

@@ -1,15 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { IoIosLock } from "react-icons/io";
 
 const UpdateAppointment = () => {
   const [Appointment,setAppointment] = useState([]);
   const navigate = useNavigate();
 
+  const username = sessionStorage.getItem('username');
+  const usertype = sessionStorage.getItem('usertype');
+
   const fetchAppointment = async ()=> {
-    const username = sessionStorage.getItem('username');
-    const usertype = sessionStorage.getItem('usertype');
+    
     try {
     const url = `http://localhost:8080/Appointment/GetAll/${username}/${usertype}`;
     const response = await axios.get(url);
@@ -57,13 +59,17 @@ const UpdateAppointment = () => {
               <td>{data.date}</td>
               <td>{data.purpose}</td>
               <td>{data.status}</td>
-              <td>
-                <button
-                  className='btn btn-warning'
-                  onClick={()=>updateHandler(data.aid,data.name,data.username,data.number,data.date,data.purpose)} >
-                    Update
-                  </button>
-              </td>
+              {
+                usertype==='user' && data.status==='Approved' ||usertype==='user' && data.status==='Rejected' 
+                ?  <td> <IoIosLock  className="ml-6 text-xl"/> </td>  :
+                <td>
+                  <button
+                    className='btn btn-warning'
+                    onClick={()=>updateHandler(data.aid,data.name,data.username,data.number,data.date,data.purpose)} >
+                      Update
+                    </button>
+                </td>
+              }
               </tr>
               ))
             }

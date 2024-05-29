@@ -142,7 +142,7 @@ function Login() {
         </div>
       </form>
       {invalid ? (
-        <h4 className="error-message">Invalid Credentials</h4>
+        <h4 className="error-message text-red-900">Invalid Credentials</h4>
       ) : (
         ""
       )}
