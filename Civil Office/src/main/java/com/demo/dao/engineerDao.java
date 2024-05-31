@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.demo.model.Engineer;
 
+import jakarta.transaction.Transactional;
+
 @Repository
 public interface engineerDao extends JpaRepository<Engineer,Integer> {
 
@@ -14,4 +16,8 @@ public interface engineerDao extends JpaRepository<Engineer,Integer> {
 	
 	@Query(value = "SELECT * FROM Engineer", nativeQuery = true)
 	Engineer EnggInfo();
+
+	@Transactional
+	@Query(value = "SELECT * FROM Engineer WHERE username = ?1",nativeQuery = true)
+	Engineer profile(String username);
 }

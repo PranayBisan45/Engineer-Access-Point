@@ -42,7 +42,7 @@ function Home() {
       </div>
       <div>
         <h1 className="text-center text-4xl mt-32 text-blue-950 font-bold">Quick to setup and book an appointment</h1>
-        <div className="w-[900px] h-72 ml-[280px] my-28 flex">
+        <div className="w-[900px] h-72 ml-[280px] my-20 flex">
           <div className="mr-20">
             <img src={appointment}  className="rounded-2xl"/>
             <h1 className="text-xl text-blue-950 font-bold mt-6 mb-2">Check for the Facility</h1>
@@ -54,7 +54,7 @@ function Home() {
             <p className="text-blue-800">Define your schedule, connect your calender and the right times will show on your bookin page</p>
           </div>
           <div>.                    
-            <img src={booking} className="rounded-2xl"/>
+            <img src={booking} className="rounded-2xl -mt-6"/>
             <h1 className="text-xl text-blue-950 font-bold mt-6 mb-2">Watch the bookings fly in</h1>
             <p className="text-blue-800">As people start scheduling time with you, EAP provides a dashboard to manage your booking.</p>
           </div>

@@ -74,7 +74,7 @@ function Appointment() {
       }
       </div>
     </div>
-    <div className='w-[600px] h-[600px] mb-14 ml-14'>
+    <div className='w-[600px] h-[600px] ml-14'>
     {
       username==null || usertype==null ?
       <NavLink to="/Login" className='text-lg ml-52 font-bold'>

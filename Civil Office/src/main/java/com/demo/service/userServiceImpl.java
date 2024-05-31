@@ -1,11 +1,8 @@
 package com.demo.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.demo.dao.userDao;
-import com.demo.model.Engineer;
 import com.demo.model.user;
 
 @Service
@@ -24,4 +21,22 @@ public class userServiceImpl implements userService {
 		return udao.validate(uName,password,uType);
 	}
 
+	@Override
+	public user forgotPassword(String username, String email) {
+		return udao.forgotPassword(username,email);
+	}
+
+	@Override
+	public Boolean newPassword(String password, String username) {
+		int rowAffected =  udao.newPassword(password,username);
+		if(rowAffected>0) {
+			return true;
+		}
+			return false;
+	}
+
+	@Override
+	public user profile(String username) {
+		return udao.profile(username);
+	}
 }

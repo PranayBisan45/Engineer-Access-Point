@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.model.Engineer;
+import com.demo.model.user;
 import com.demo.service.engineerService;
 
 @RestController
@@ -46,6 +47,15 @@ public class EngineerController {
 		Engineer e = eservice.EnggInfo();
 		if(e!=null) {
 			return ResponseEntity.ok(e);
+		}
+			return ResponseEntity.ok(null);
+	}
+	
+	@GetMapping("/Profile")
+	public ResponseEntity <Engineer> Profile(@RequestParam String username) {
+		Engineer u = eservice.profile(username);
+		if(u!=null) {
+			return ResponseEntity.ok(u);
 		}
 			return ResponseEntity.ok(null);
 	}

@@ -10,6 +10,9 @@ import DeleteAppointment from "../component/DeleteAppointment";
 import AllAppointment from "../component/AllAppointment";
 import UpdateAppointment from "../component/UpdateAppointment";
 import UpdateComponent from "../component/UpdateComponent";
+import Forgot_Password from "../component/Forgot_Password";
+import OTP from "../component/OTP";
+import NewPassword from "../component/NewPassword";
 
 const AllRouting = () => {
   return (
@@ -27,6 +30,9 @@ const AllRouting = () => {
         <Route path="/AllAppointment" element={<AllAppointment/>} />
         <Route path="/UpdateAppointment" element={<UpdateAppointment/>} />
         <Route path="/Update" element={<UpdateComponent/>} />
+        <Route path="/ForgotPassword" element={<Forgot_Password/>} />
+        <Route path="/OTP" element={<OTP/>} />
+        <Route path="/NewPassword" element={<NewPassword/>} />
     </Routes>
     </BrowserRouter>
   );

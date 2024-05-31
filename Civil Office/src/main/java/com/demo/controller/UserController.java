@@ -1,6 +1,5 @@
 package com.demo.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,24 +7,20 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.demo.model.appointment;
 import com.demo.model.user;
 import com.demo.service.userService;
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
 
 @RestController
 @CrossOrigin
 @RequestMapping("/User")
 public class UserController {
+	
+	String OTP;
 	
 	@Autowired
 	private userService uservice;
@@ -42,20 +37,54 @@ public class UserController {
 	}
 	
 	@GetMapping("/Login")
-	public ResponseEntity<String> LoginUser(@RequestParam String username,@RequestParam String password,@RequestParam String usertype, HttpServletRequest request) {
+	public ResponseEntity<String> LoginUser(@RequestParam String username,@RequestParam String password,@RequestParam String usertype) {
 		user ul = uservice.validate(username,password,usertype);
 		
 		if(ul!=null) {
-//			HttpSession session = request.getSession();
-//			session.setAttribute("usernamekey",username);
-//			session.setAttribute("usertypekey",usertype);
-//			
-//			String user1 = (String) session.getAttribute("usernamekey");
-//			System.out.println(user1+"????????????");
-			
-			
 			return ResponseEntity.ok("Login Successful") ;
 		}
 		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login Failed");
+	}
+	
+	@GetMapping("/ForgotPassword")
+	public ResponseEntity<Boolean> ForgotPassword(@RequestParam String username, @RequestParam String email) {
+		user u = uservice.forgotPassword(username,email);
+		System.out.println(u);
+		if(u!=null) {
+			return ResponseEntity.ok(true);
+		}
+			return ResponseEntity.ok(false);
+	}
+	
+	@PostMapping("/Verify")
+	public void Verify (@RequestBody String otp) {
+		OTP = otp;
+	}
+	
+	@PostMapping("/OTP")
+    public ResponseEntity<Boolean> verifyOTP(@RequestBody String requestBody) {
+        String receivedOtp = requestBody;
+        if (OTP.equals(receivedOtp)) {
+            return ResponseEntity.ok(true);
+        }
+        return ResponseEntity.ok(false);
+    }
+	
+	@PutMapping("/NewPassword/{password}/{username}")
+	public ResponseEntity <?> newPassword(@PathVariable String password,@PathVariable String username) {
+		Boolean flag = uservice.newPassword(password,username);
+		if(flag) {
+			return ResponseEntity.ok(true);
+		}
+			return ResponseEntity.ok(false);
+	}
+	
+	@GetMapping("/Profile")
+	public ResponseEntity <user> Profile(@RequestParam String username) {
+		user u = uservice.profile(username);
+		if(u!=null) {
+			return ResponseEntity.ok(u);
+		}
+			return ResponseEntity.ok(null);
 	}
 }

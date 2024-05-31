@@ -26,4 +26,9 @@ public class engineerServiceImpl implements engineerService {
 	public Engineer EnggInfo() {
 		return edao.EnggInfo();
 	}
+
+	@Override
+	public Engineer profile(String username) {
+		return edao.profile(username);
+	}
 }

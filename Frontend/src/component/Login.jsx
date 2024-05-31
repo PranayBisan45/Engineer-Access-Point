@@ -41,8 +41,6 @@ function Login() {
 
       const data = await fetch(url);
       const response = await data.text();
-      console.log(response);
-      console.log(formData);
 
       if (response === "Login Successful") {
         sessionStorage.setItem("username", formData.username);

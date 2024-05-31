@@ -9,5 +9,11 @@ public interface userService {
 
 	user validate(String getuserName, String password, String getuserType);
 
+	user forgotPassword(String username, String email);
+
+	Boolean newPassword(String password, String username);
+
+	user profile(String username);
+
 
 }

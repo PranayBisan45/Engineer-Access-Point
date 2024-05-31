@@ -9,4 +9,6 @@ public interface engineerService {
 	Engineer validate(String userName, String password, String userType);
 
 	Engineer EnggInfo();
+
+	Engineer profile(String username);
 }

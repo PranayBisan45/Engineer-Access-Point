@@ -35,7 +35,7 @@ return (
                 </div>
             </div>
         </div>
-        <div className="w-[600px] h-[600px] mb-14">
+        <div className="w-[600px] h-[600px]">
             <div className='text-lg text-center font-bold'> Structural Design and Analysis
                 <div className="w-[560px] h-[560px] mr-7 mt-2 rounded-2xl overflow-hidden">
                     <img className="rounded-2xl transform transition-transform duration-300 hover:scale-110" src={SA} alt='Structural Design and Analysis image'/>
