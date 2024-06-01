@@ -15,6 +15,16 @@ const Profile = () => {
     const fetchProfile = async () => {
     try {
         let url =''
+
+        if(username === 'guest') {
+            setFormData({
+                username:'Guest',
+                mobile:'1234567890',
+                email:'guest@gmail.com',
+                address:'India',
+                dob:'01/01/2001'
+            }) 
+        } else {
         if(usertype==='engineer'){
             url = "http://localhost:8080/Engineer/Profile";
         }
@@ -26,7 +36,7 @@ const Profile = () => {
             params: { username }
         });
         setFormData(response.data);
-    }   catch (error) {
+    }  } catch (error) {
         console.error("Error fetching appointment data:", error);
     }
     };

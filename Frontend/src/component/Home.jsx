@@ -8,13 +8,21 @@ import booking from "../assets/booking.jfif"
 function Home() {
   const [message, setMessage] = useState('');
   const handleChange = () => {
-    sessionStorage.setItem('username','guest');
-    sessionStorage.setItem('usertype','user');
-      
-    setMessage('You are logged in as a guest');
-    setTimeout(() => {
-      setMessage('');
-    }, 4000);
+    if(sessionStorage.getItem("username")==null && sessionStorage.getItem("usertype")==null) {
+      sessionStorage.setItem('username','guest');
+      sessionStorage.setItem('usertype','user');
+
+      setMessage('You are logged in as a guest');
+      setTimeout(() => {
+        setMessage('');
+      }, 4000);
+    }
+    else {
+    setMessage('You are already logged in');
+      setTimeout(() => {
+        setMessage('');
+      }, 4000);  
+    }
   }
   
   return (

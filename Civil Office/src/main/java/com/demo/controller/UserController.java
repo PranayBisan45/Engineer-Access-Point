@@ -1,8 +1,12 @@
 package com.demo.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.demo.model.user;
 import com.demo.service.userService;
 
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/User")
@@ -24,6 +31,9 @@ public class UserController {
 	
 	@Autowired
 	private userService uservice;
+	
+	@Autowired
+	JavaMailSender mailSender;
 	
 	@PostMapping("/Registration")
 	public ResponseEntity<String> addUser(@RequestBody user u) {
@@ -86,5 +96,28 @@ public class UserController {
 			return ResponseEntity.ok(u);
 		}
 			return ResponseEntity.ok(null);
+	}
+	
+	@GetMapping("/SendOTP")
+	public void sendOTPEmail(@RequestParam String username,@RequestParam String email,@RequestParam String OTP)
+	        throws UnsupportedEncodingException, MessagingException {
+	    MimeMessage message = mailSender.createMimeMessage();              
+	    MimeMessageHelper helper = new MimeMessageHelper(message);
+	     
+	    helper.setFrom("pranaybisan45.com", "EAP");
+	    helper.setTo(email);
+	     
+	    String subject = "Here's your One Time Password (OTP)";
+	     
+	    String content = "<p>Hello " + username + "</p>"
+	            + "<p>For security reason, you're required to use the following "
+	            + "One Time Password to login:</p>"
+	            + "<p><b>" + OTP + "</b></p>";
+	     
+	    helper.setSubject(subject);
+	     
+	    helper.setText(content, true);
+	     
+	    mailSender.send(message);      
 	}
 }
