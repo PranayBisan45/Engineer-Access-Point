@@ -1,6 +1,7 @@
 import  { useState } from 'react';
 import {NavLink, useNavigate} from 'react-router-dom';
 import { IoPersonCircleSharp } from "react-icons/io5";
+import { useLogin } from './Context';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -13,7 +14,7 @@ function Login() {
   const [edata, setEData] = useState('');
   const [invalid, setInvalid] = useState(false);
   const navigate = useNavigate();
-  
+  const {LoggedIn,checkLogin} = useLogin()
   const handleSetEcode = (e) => {
     if (e.target.value === "engineer") {
       setECode(true);
@@ -52,12 +53,9 @@ function Login() {
           password: ''
         });
         setEData('');
-
-        
-          navigate('/');
-      
-          
-      
+        checkLogin(true);
+        console.log(LoggedIn)
+        navigate('/');
       } else {
         setInvalid(true);
         setTimeout(() => {

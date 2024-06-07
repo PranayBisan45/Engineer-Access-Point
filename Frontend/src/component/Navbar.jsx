@@ -1,104 +1,87 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from '../assets/Logo.jpg';
 import image from '../assets/Profile.png';
-import { useNavigate } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
+import { useNavigate, NavLink } from 'react-router-dom';
+import {useState, useRef, useEffect} from 'react';
 import Profile from './Profile';
+import { useLogin } from './Context';
 
 const Navbar = () => {
-  const [profileVisible, setProfileVisible] = useState(false);
-  const [timer, setTimer] = useState(null);
+  const navigate = useNavigate();
+  const {LoggedIn,checkLogin} = useLogin()
+  const [showProfile,checkShowProfile] = useState(false);
   const profileRef = useRef(null);
 
-  const handleProfileClick = () => {
-    setProfileVisible(true);
-    if (timer) {
-      clearTimeout(timer);
-    }
-    const newTimer = setTimeout(() => {
-      setProfileVisible(false);
-    }, 10000);
-    setTimer(newTimer);
-  };
+  const handleLogout = () => {
+    sessionStorage.removeItem('usertype');
+    sessionStorage.removeItem('username');
 
-  // const navigate = useNavigate();
+    checkLogin(false);
+    navigate("/");
+  }
+
+  const handleProfile =() => {
+    checkShowProfile(!showProfile)
+  }
 
   const handleClickOutside = (event) => {
     if (profileRef.current && !profileRef.current.contains(event.target)) {
-      setProfileVisible(false);
-      if (timer) {
-        clearTimeout(timer);
-      }
+      checkShowProfile(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    if (showProfile) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [profileRef]);
-
-  const usertype = sessionStorage.getItem('usertype');
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-    if (usertype != null) {
-      setLoggedIn(true);
-    }
-  }, [usertype]);
-
-  const handleLogout = async () => {
-    try {
-      sessionStorage.removeItem('username');
-      sessionStorage.removeItem('usertype');
-
-      setLoggedIn(false);
-
-      // navigate('/');
-    } catch (error) {
-      console.error("Error logging out:", error);
-    }
-  };
-
-  const handleLogin = async () => {
-    setLoggedIn(false);
-  };
+  }, [showProfile]);
 
   return (
     <div className="position-relative">
       <div className='flex fixed bg-white z-10 w-full'>
-        <a className="" href="/">
-          <img src={Logo} className='mr-44 ml-3 my-2 h-20 w-20 rounded-3xl' alt="Logo" loading="lazy" />
-        </a>
-        <a className="mr-10 my-8 text-lg font-bold text-blue-700" href="Home">
-          Home 
-        </a>
-        <a className="mr-10 text-lg my-8 font-bold text-blue-700" href="Facilities">
-          Facilities
-        </a>
-        <a className="mr-10 text-lg my-8 font-bold text-blue-700" href="Appointment">
-          Appointment
-        </a>
+        <NavLink to="/Home">
+          <img src={Logo} className='mr-44 ml-3 my-2 h-20 w-20 rounded-3xl' alt="Logo"  />
+        </NavLink>
+        <NavLink to="/Home">
+          <div className="mr-10 my-8 text-lg font-bold text-blue-700">
+            Home 
+          </div>
+        </NavLink>
+        <NavLink to="/Facilities">
+          <div className="mr-10 text-lg my-8 font-bold text-blue-700">
+            Facilities
+          </div>
+        </NavLink>
+        <NavLink to="/Appointment">
+          <div className="mr-10 text-lg my-8 font-bold text-blue-700">
+            Appointment
+          </div>
+        </NavLink>
         {
-          loggedIn ? (
+          LoggedIn ? (
             <button className="mr-auto text-lg mb-[12px] font-bold text-blue-700" onClick={handleLogout}>
               Logout
             </button>
           ) : (
-            <a className="mr-auto text-lg my-8 font-bold text-blue-700" href="Login" onClick={handleLogin}>
-              Login
-            </a>
+            <NavLink to="/Login">
+              <div className="mr-auto text-lg my-8 font-bold text-blue-700">
+                Login
+              </div>
+            </NavLink>
           )
         }
-        
-        <div className="position-relative">
-          <img src={image} className="h-10 my-8 ml-[800px] rounded-3xl mr-20 cursor-pointer" loading="lazy" onClick={handleProfileClick}/>
-          {profileVisible && (
-            <div ref={profileRef} className="position-absolute rounded mt-2 p-2 shadow" style={{ right: 0 }}>
-              <Profile />
+
+        <div className="position-relative" ref={profileRef}>
+          <img src={image} className="h-10 my-8 ml-[800px] rounded-3xl mr-20 cursor-pointer" onClick={handleProfile}/>
+            <div className="position-absolute rounded mt-2 p-2 shadow" style={{ right: 0 }}>
+              { showProfile && <Profile /> }
             </div>
-          )}
         </div>
       </div>
     </div>

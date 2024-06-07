@@ -5,20 +5,26 @@ import { useState } from 'react';
 import appointment from '../assets/homeappointment.jfif'
 import schedule from "../assets/setAppointment.jfif"
 import booking from "../assets/booking.jfif"
+import { useLogin } from "./Context";
+
 function Home() {
   const [message, setMessage] = useState('');
+  const {LoggedIn,checkLogin } = useLogin()
+
   const handleChange = () => {
     if(sessionStorage.getItem("username")==null && sessionStorage.getItem("usertype")==null) {
       sessionStorage.setItem('username','guest');
       sessionStorage.setItem('usertype','user');
 
       setMessage('You are logged in as a guest');
+      checkLogin(true)
       setTimeout(() => {
-        setMessage('');
+        setMessage(''); 
       }, 4000);
     }
     else {
-    setMessage('You are already logged in');
+    setMessage('You are already logged in!!');
+    
       setTimeout(() => {
         setMessage('');
       }, 4000);  
