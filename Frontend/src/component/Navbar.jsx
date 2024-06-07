@@ -30,6 +30,13 @@ const Navbar = () => {
     }
   };
 
+  if(sessionStorage.getItem("username")==null && sessionStorage.getItem("usertype")==null) {
+    checkLogin(false)
+  }
+  else {
+    checkLogin(true)
+  }
+
   useEffect(() => {
     if (showProfile) {
       document.addEventListener('mousedown', handleClickOutside);
