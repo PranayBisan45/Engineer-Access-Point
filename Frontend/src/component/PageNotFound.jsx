@@ -1,7 +1,10 @@
+import Page_Not_Found from "../assets/Page_Not_Found.avif"
 
 const PageNotFound = () => {
   return (
-    <h1 className="text-center text-2xl font-bold text-red-600 mt-20">Page Not Found</h1>
+    <div className="w-[600px] items-center m-auto justify-center h-[450px]">
+      <img src={Page_Not_Found}/>
+    </div>
   )
 }
 
